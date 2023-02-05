@@ -55,7 +55,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "Volca Docs",
+        title: "Volca",
         logo: {
           alt: "Volca logo",
           src: "img/logo.svg",
