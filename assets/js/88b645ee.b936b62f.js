@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkvolca_docs=self.webpackChunkvolca_docs||[]).push([[168],{1536:e=>{e.exports=JSON.parse('{"title":"Overview","slug":"/category/overview","permalink":"/docs/category/overview","navigation":{"previous":{"title":"How to purchase","permalink":"/docs/purchase"},"next":{"title":"Tech stack","permalink":"/docs/tech-stack"}}}')}}]);
