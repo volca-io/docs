@@ -1,0 +1,8 @@
+{
+  "yaml.schemas": {
+    "file:/Users/okarlsson/Library/Application Support/Code/User/globalStorage/amazonwebservices.aws-toolkit-vscode/sam.schema.json": [
+      "default.yml"
+    ],
+    "https://json.schemastore.org/github-action.json": "file:///Users/okarlsson/code/volca-docs/.github/workflows/deploy.yml"
+  }
+}

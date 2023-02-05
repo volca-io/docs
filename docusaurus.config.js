@@ -18,6 +18,7 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "volca-io", // Usually your GitHub org/user name.
   projectName: "docs", // Usually your repo name.
+  trailingSlash: false,
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -53,7 +54,7 @@ const config = {
           alt: "Volca logo",
           src: "img/logo.svg",
           href: "https://volca.io",
-          target: '_self',
+          target: "_self",
         },
         items: [
           {
@@ -100,7 +101,7 @@ const config = {
               {
                 label: "Slack",
                 href: "https://join.slack.com/t/volcahq/shared_invite/zt-1kj1tnuf5-kjWH9a4XCjiiuUPi3HN2Mw",
-              }
+              },
             ],
           },
           {
