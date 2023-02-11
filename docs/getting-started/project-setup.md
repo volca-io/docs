@@ -11,39 +11,65 @@ Once you have purchased Volca, you will receive a link to a zip archive containi
 
 ## Setup
 
-- [Install Node](https://nodejs.org/en/download/)
-  - Node is the runtime for Volca backend servies
-- [Install Yarn](https://classic.yarnpkg.com/lang/en/docs/install)
-  - Yarn is used to manage dependencies and the [monorepo project structure](/project-structure) of Volca
-- [Install asdf](https://asdf-vm.com/guide/getting-started.html)
-  - asdf is a utility to manage versions of the tools used to run Volca
-- [Install Docker](https://docs.docker.com/get-docker/)
-  - Docker is used to run the Postgres database server locally
-- [Install AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-  - AWS CLI is used to deploy your application to AWS
+### 1. Install [asdf](https://asdf-vm.com/guide/getting-started.html)
+
+This package is used to manage versions of tools and ensures that you are running versions compatible with Volca. It will also allow you to run a specific version of tools in Volca while not interfering with your other projects.
+
+### 2. Install `node.js`
+
+Node.js is the runtime that allows your backend and frontend to run. 
+
+Run the following commands to install
+```bash
+  asdf plugin add nodejs
+  asdf install nodejs 16.17.0
+```
+
+### 3. Install `yarn`
+
+Yarn is the package manager used in Volca and supports our [monorepo project structure](/project-structure). 
+
+```bash
+  asdf plugin add yarn
+  asdf install yarn 1.22.18
+```
+
+### 4. [Install Docker](https://docs.docker.com/get-docker/)
+
+Docker is used to run the Postgres database server locally 
+
+### 5. [Install AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+
+AWS CLI is used to deploy your application to AWS
+
+
+## Initialise a new git repository
+
+```
+git init
+```
 
 ## Install dependencies
 
-To install all depedencies that Volca uses, run the following command:
+After the tools has been installed, we can proceed to install the repositories dependencies.
 
 ```bash
 yarn install
 ```
 
-## Create a .env file
+## Bootstrap
 
-To control environment variables when running locally, we use a `.env` file.
+Once dependencies are installed, we can run the bootstrap script to set up the project configuration.
 
-Create a placeholder file `services/api/env/.env.local` and fill it with the placeholder values below:
-
-```text title="services/api/env/.env.local"
-STAGE=local
-STRIPE_KEY=<STRIPE_KEY>
-STRIPE_PRICE_ID=<STRIPE_PRICE_ID>
-SIGNING_KEY=local-signing-key
+```bash
+yarn bootstrap
 ```
 
-The Stripe keys are not required to get up and running at this stage. As you continue configuring your Volca app, you can update this file with new values.
+The bootstrap script will guide you through the setup and create the configuration files for you. To see what files has been created, check the repo status with git.
+
+```bash
+git status
+```
 
 ## Run Locally
 
