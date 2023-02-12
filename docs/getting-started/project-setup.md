@@ -17,9 +17,10 @@ This package is used to manage versions of tools and ensures that you are runnin
 
 ### 2. Install `node.js`
 
-Node.js is the runtime that allows your backend and frontend to run. 
+Node.js is the runtime that allows your backend and frontend to run.
 
 Run the following commands to install
+
 ```bash
   asdf plugin add nodejs
   asdf install nodejs 16.17.0
@@ -27,7 +28,7 @@ Run the following commands to install
 
 ### 3. Install `yarn`
 
-Yarn is the package manager used in Volca and supports our [monorepo project structure](/project-structure). 
+Yarn is the package manager used in Volca and supports our [monorepo project structure](/project-structure).
 
 ```bash
   asdf plugin add yarn
@@ -36,20 +37,11 @@ Yarn is the package manager used in Volca and supports our [monorepo project str
 
 ### 4. [Install Docker](https://docs.docker.com/get-docker/)
 
-Docker is used to run the Postgres database server locally 
+Docker is used to run the Postgres database server locally
 
 ### 5. [Install AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 
 AWS CLI is used to deploy your application to AWS
-
-
-## Initialise a new git repository
-
-Run the following command in the root of the project.
-
-```bash
-git init
-```
 
 ## Install dependencies
 
@@ -67,20 +59,7 @@ Once dependencies are installed, we can run the bootstrap script to set up the p
 yarn bootstrap
 ```
 
-The bootstrap script will guide you through the setup and create the configuration files for you. To see what files has been created, check the repo status with git.
-
-```bash
-git status
-```
-
-You can now commit your changes and push it to the main branch of your GitHub repository.
-```bash
-git add -A
-git commit -m "first commit"
-git branch -M main
-git remote add origin <your-origin> #Insert your GitHub origin address
-git push -u origin main
-```
+The bootstrap script will guide you through the setup and create the configuration files for you.
 
 ## Run Locally
 
