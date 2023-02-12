@@ -45,7 +45,9 @@ AWS CLI is used to deploy your application to AWS
 
 ## Initialise a new git repository
 
-```
+Run the following command in the root of the project.
+
+```bash
 git init
 ```
 
@@ -69,6 +71,15 @@ The bootstrap script will guide you through the setup and create the configurati
 
 ```bash
 git status
+```
+
+You can now commit your changes and push it to the main branch of your GitHub repository.
+```bash
+git add -A
+git commit -m "first commit"
+git branch -M main
+git remote add origin <your-origin> #Insert your GitHub origin address
+git push -u origin main
 ```
 
 ## Run Locally
