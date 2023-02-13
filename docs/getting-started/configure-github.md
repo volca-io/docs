@@ -32,9 +32,8 @@ Replace `GITHUB_ORGANIZATION` with either your GitHub username if you created th
 Replace `GITHUB_REPOSITORY_NAME` with your repository name.
 
 ```sh
-git init
+git init --initial-branch=main
 git remote add origin git@github.com:<GITHUB_ORGANIZATION>/<GITHUB_REPOSITORY_NAME>.git
-git branch -M main
 git push -u origin main
 ```
 
