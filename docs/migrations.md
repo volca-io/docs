@@ -10,7 +10,8 @@ Migrations are a way to version control your database schema. A migration might 
 
 All migrations reside in the file `services/api/src/lib/db/migrations.ts`. Each migration is inside an array and looks like this:
 
-```ts
+```ts title="services/api/src/lib/db/migrations.ts"
+...
 {
     name: '02_create_users_table',
     up: (knex: Knex) => {
@@ -26,6 +27,7 @@ All migrations reside in the file `services/api/src/lib/db/migrations.ts`. Each 
         return knex.schema.dropTable('users');
     },
 },
+...
 ```
 
 The `up` function runs when you apply your migration and the `down` function runs when you roll back your migration.
