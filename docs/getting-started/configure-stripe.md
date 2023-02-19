@@ -7,21 +7,21 @@ slug: /configure-stripe
 
 Follow the below steps to configure Stripe for you application and start accepting payments.
 
-### Create a Stripe account
+## Create a Stripe account
 
 Head on over to [Stripe](https://stripe.com/) and create an account if you don't already have one.
 
-### Test mode
+## Test mode
 
 We recommend setting everything up in "Test mode" first by switching on the "Test mode" toggle in the Stripe dashboard. Once you are ready for production, follow the below steps while in production mode.
 
-### Create a product and a price
+## Create a product and a price
 
 Once you have your Stripe account set up, it's time to create a product. Go to Products -> Add product and add your product details. Since Volca is a SaaS boilerplate, pick the _recurring_ billing method.
 
 When you are done, save the product, scroll down to the "Pricing" heading and copy the ID of the price you just configured.
 
-### Set the STRIPE_KEY and STRIPE_PRICE_ID locally
+## Set the STRIPE_KEY and STRIPE_PRICE_ID locally
 
 To get subscriptions running locally, open `.env` and add:
 
@@ -31,7 +31,7 @@ And then add your `STRIPE_PRICE_ID` to the `app.config.ts` file.
 
 Start the app and try subscribing!
 
-### Set the STRIPE_KEY parameter in AWS
+## Set the STRIPE_KEY parameter in AWS
 
 This step requires you to have deployed your app to AWS at least once by following the [deploy infrastructure guide](/docs/category/deploying-to-aws).
 
@@ -42,3 +42,27 @@ This step requires you to have deployed your app to AWS at least once by followi
 5. For the updated parameter to be updated in your app, you need to re-deploy it either by running `yarn deploy:<environment>` from the `api` folder or by pushing a new commit to the GitHub repository and let GitHub Actions do the heavy lifting
 
 Now you should be able to accept payments in your deployed application!
+
+## Webhooks
+
+Whenever a customer makes a purchase through your Stripe checkout flow, the database needs to be updated to add a subscription for the user who made the purchase. This is done using webhooks. You will need to set up a webhook for each environment that your project runs in.
+
+1. Sign in to the Stripe dashboard
+2. Go to the Developers tab
+3. Go to Webhooks
+4. Click Add endpoint
+5. Enter the following values
+  Endpoint URL: `<your-api-url>/stripe/webhook`
+  Events: `customer.subscription.created`and `customer.subscription.deleted`
+6. Leave the rest as default and click Add endpoint
+
+Next, we need to add the webhook secret to our configuration.
+
+1. Click the webhook you created in the Stripe dashboard
+2. Click Signing secret -> Reveal
+3. Copy the secret
+4. Go into AWS -> Systems Manager -> Parameter Store
+5. Find the STRIPE_WEBHOOK_SECRET parameter and update it with the value from Stripe
+6. Re-deploy your project
+
+Now you are done! Stripe will alert you if your webhook would fail.
