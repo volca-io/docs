@@ -23,20 +23,22 @@ When you are done, save the product, scroll down to the "Pricing" heading and co
 
 ### Set the STRIPE_KEY and STRIPE_PRICE_ID locally
 
-To get subscriptions running locally, open `services/api/env/.env.local` and add:
+To get subscriptions running locally, open `.env` and add:
 
-`STRIPE_PRICE_ID=` The ID of the price that you previously created
 `STRIPE_KEY=` The Stripe secret key found in the "Developers" tab in the Stripe dashboard
+
+And then add your `STRIPE_PRICE_ID` to the `app.config.ts` file.
 
 Start the app and try subscribing!
 
-### Set the STRIPE_KEY and STRIPE_PRICE_ID in AWS
+### Set the STRIPE_KEY parameter in AWS
 
 This step requires you to have deployed your app to AWS at least once by following the [deploy infrastructure guide](/docs/category/deploying-to-aws).
 
 1. Open the AWS console
-2. Open Services -> Secrets Manager
-3. Find the existing secret for your app, .e.g `volca-<environment>-api-credentials` and press "Retrieve secret value"
-4. Add `stripeKey` and `stripePricingId` into the secret and save
+2. Open Services -> Systems Manager -> Parameter Store
+3. Find the existing parameter called `/<environment>/STRIPE_KEY`
+4. Update the parameter with your Stripe key and save
+5. For the updated parameter to be updated in your app, you need to re-deploy it either by running `yarn deploy:<environment>` from the `api` folder or by pushing a new commit to the GitHub repository and let GitHub Actions do the heavy lifting
 
 Now you should be able to accept payments in your deployed application!
