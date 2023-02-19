@@ -12,9 +12,9 @@ Create a GitHub repository either under your personal GitHub account or a GitHub
 
 ## Update your Volca config
 
-Navigate to the project folder containing your Volca application and update the file `volca.config.ts` with the following values
+Navigate to the project folder containing your Volca application and update the file `app.config.ts` with the following values
 
-```ts title="volca.config.ts"
+```ts title="app.config.ts"
 ...
 github: {
     organization: 'my-github-org', // Your GitHub organization or username
