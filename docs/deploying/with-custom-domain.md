@@ -12,10 +12,10 @@ Follow the steps below to deploy your application with you custom domain!
 
 ## Add the custom domain to the Volca config
 
-First, add the custom domain to the environments configuration in `volca.config.ts`. Like this:
+First, add the custom domain to the environments configuration in `app.config.ts`. Like this:
 
-```ts title="volca.config.ts"
-export const config: VolcaConfig = {
+```ts title="app.config.ts"
+export const config: Config = {
   name: "my-app", // Your app name
   environments: {
     staging: {
