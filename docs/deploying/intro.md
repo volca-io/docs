@@ -57,7 +57,7 @@ If you are unsure about how to do this for your domain provider, don't hesitate 
 
 ## Certificate validation
 
-Once your name servers have propagated, the certificate that was created when you ran `yarn bootstrap-infra` will automatically be validated. Note that this might up to a few hours depending on your domain provider.
+Once your name servers have propagated, the certificate that was created when you ran `yarn bootstrap-infra` will automatically be validated. This needs to happen before you can proceed with the deployment. Note that this might up to a few hours depending on your domain provider.
 
 To check the verification status of your certificate run:
 
