@@ -21,7 +21,7 @@ Each AWS account that you want to deploy needs a few resources so that your proj
 
 - An OpenID Connect (OIDC) identity provider that allows GitHub to identity itself
 - IAM roles that allow GitHub Actions to deploy resources in your AWS account
-- A Route53 hosted zone
+- A Route53 hosted zone to manage your domain
 - An ACM certificate to enable accessing your project over HTTPS
 
 To deploy these resources, run the following command from the root directory of your project.
@@ -37,6 +37,23 @@ ns-642.awsdns-16.net
 ns-220.awsdns-27.com
 ns-1943.awsdns-50.co.uk
 ```
+
+Take the list of name servers and add them to your domain registration as NS records. For example:
+
+| Hostname           | Type | Data                    |
+| ------------------ | ---- | ----------------------- |
+| staging.my-app.com | NS   | ns-1126.awsdns-12.org   |
+|                    |      | ns-642.awsdns-16.net    |
+|                    |      | ns-220.awsdns-27.com    |
+|                    |      | ns-1943.awsdns-50.co.uk |
+
+:::caution
+
+Some DNS providers will display the list of hostnames differently. You might have to enter `staging.my-app.com` or just `staging` as the hostname. Have a look at the existing entries to understand how it should be entered. For example, if there is only a `www` entry instead of `www.my-app.com`, then you should only enter `staging`.
+
+:::
+
+If you are unsure about how to do this for your domain provider, don't hesitate to reach out to us for support.
 
 ## Certificate validation
 
