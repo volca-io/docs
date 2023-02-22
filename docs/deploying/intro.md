@@ -55,20 +55,14 @@ Some DNS providers will display the list of hostnames differently. You might hav
 
 If you are unsure about how to do this for your domain provider, don't hesitate to reach out to us for support.
 
-## Certificate validation
-
-Once your name servers have propagated, the certificate that was created when you ran `yarn bootstrap-infra` will automatically be validated. This needs to happen before you can proceed with the deployment. Note that this might up to a few hours depending on your domain provider.
-
-To check the verification status of your certificate run:
-
-```
-yarn check-certificate
-```
-
-This will output either `VALIDATED` or `NOT VALIDATED`. Wait until the status is `VALIDATED` to proceeed to the next step.
+Wait until the name servers have propagated to proceed with the next step. You can check this by running `nslookup -type=ns <your-domain>`.
 
 ## Push your code
 
-Now it's time for GitHub actions to take over the rest of the deployment to AWS.
+Now it's time for GitHub Actions to take over the rest of the deployment to AWS.
 
 Simply push your code to the `main` branch and head over to your repository in GitHub to see the progress. If any action would fail, check the logs in the Actions tab in your repository and refer to the documentation if something goes wrong.
+
+Note that this step can take a long time the first time it is run since it creates certificates that take a while to validate.
+
+Once it has finished, your environment is deployed and new changes that you push to main will be automatically deployed.
