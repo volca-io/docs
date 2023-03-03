@@ -7,7 +7,7 @@ slug: /todo
 
 In this guide we will walk you through the process of creating a todo list in Volca.
 
-Before you start, make sure you have gone through the [getting started guide](/docs/category/getting-started).
+Before you start, make sure you have gone through the [project setup guide](/docs/category/project-setup).
 
 ## Create a database migration
 

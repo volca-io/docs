@@ -92,7 +92,7 @@ const config = {
                 to: "/docs/purchase",
               },
               {
-                label: "Getting started",
+                label: "Project setup",
                 to: "/docs/category/project-setup",
               },
               {

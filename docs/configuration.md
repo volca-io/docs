@@ -8,88 +8,101 @@ slug: /configuration
 All configuration parameters for a Volca app reside in the `app.config.ts` file at the root of the repository. Here is an example of how such a file could look like:
 
 ```ts title="app.config.ts" 
-import { Config } from './config/types';
+import { Config, Environments } from './config/types';
 import { DEFAULT_ENVIRONMENT_VARIABLES, getEnvVar } from './config/utils';
 
-export const config: Config = {
-  name: 'my-app',
+const coreConfig: Omit<Config, 'environments'> = {
+  name: 'my-project',
   github: {
     organization: 'my-github-organization',
-    repository: 'my-github-repository',
+    repository: 'my-github-repo',
   },
-  environments: {
-    local: {
-      environmentVariables: {
-        ...DEFAULT_ENVIRONMENT_VARIABLES,
-        APP_DOMAIN: getEnvVar('APP_DOMAIN', '127.0.0.1:3000'),
-        DB_PASSWORD: getEnvVar('PASSWORD', 'postgres'),
-        DB_USERNAME: getEnvVar('USERNAME', 'postgres'),
-        ENVIRONMENT: 'local',
-        FROM_EMAIL: getEnvVar('FROM_EMAIL', 'noreply@example.com'),
-        LOG_LEVEL: getEnvVar('LOG_LEVEL', 'debug'),
-        SIGNING_KEY: getEnvVar('SIGNING_KEY', 'signing-key'),
-        STRIPE_KEY: getEnvVar('STRIPE_KEY', 'stripe-key'),
-        STRIPE_PRICE_ID: getEnvVar('STRIPE_PRICE_ID', 'stripe-price-id'),
-        STRIPE_WEBHOOK_SECRET: getEnvVar('STRIPE_WEBHOOK_SECRET', 'stripe-webhook-secret'),
-      },
+  domain: 'example.com',
+  fromEmail: 'admin@example.com',
+  aws: {
+    account: '000000000000',
+    region: 'us-east-1',
+  },
+};
+
+const environments: Environments = {
+  local: {
+    environmentVariables: {
+      ...DEFAULT_ENVIRONMENT_VARIABLES,
+      APP_DOMAIN: getEnvVar('APP_DOMAIN', '127.0.0.1:3000'),
+      DB_PASSWORD: getEnvVar('PASSWORD', 'postgres'),
+      DB_USERNAME: getEnvVar('USERNAME', 'postgres'),
+      ENVIRONMENT: 'local',
+      FROM_EMAIL: getEnvVar('FROM_EMAIL', 'noreply@example.com'),
+      LOG_LEVEL: getEnvVar('LOG_LEVEL', 'debug'),
+      SIGNING_KEY: getEnvVar('SIGNING_KEY', 'signing-key'),
+      STRIPE_KEY: getEnvVar('STRIPE_KEY', 'stripe-key'),
+      STRIPE_PRICE_ID: getEnvVar('STRIPE_PRICE_ID', 'stripe-price-id'),
+      STRIPE_WEBHOOK_SECRET: getEnvVar('STRIPE_WEBHOOK_SECRET', 'stripe-webhook-secret'),
+      TEST_CARD_ENABLED: getEnvVar('TEST_CARD_ENABLED', '1'),
     },
-    staging: {
-      deploymentConfig: {
-        domain: 'staging.example.com',
-        aws: {
-          account: '000000000000',
-          region: 'us-east-1',
-          publicDatabase: true,
-        },
-      },
-      environmentVariables: {
-        ...DEFAULT_ENVIRONMENT_VARIABLES,
-        APP_DOMAIN: '${ssm:/staging/APP_DOMAIN}',
-        DB_PASSWORD: '${ssm:/staging/DB_PASSWORD}',
-        DB_USERNAME: 'app',
-        ENVIRONMENT: 'staging',
-        FROM_EMAIL: 'noreply@example.com',
-        LOG_LEVEL: 'info',
-        SIGNING_KEY: '${ssm:/staging/SIGNING_KEY}',
-        STRIPE_KEY: '${ssm:/staging/STRIPE_KEY}',
-        STRIPE_PRICE_ID: 'price_xxx',
-        STRIPE_WEBHOOK_SECRET: '${ssm:/staging/STRIPE_WEBHOOK_SECRET}',
-      },
+  },
+  staging: {
+    deploymentConfig: {
+      subdomain: 'staging',
+      publicDatabase: true,
     },
-    production: {
-      deploymentConfig: {
-        domain: 'production.example.com',
-        aws: {
-          account: '000000000000',
-          region: 'us-east-1',
-          publicDatabase: true,
-        },
-      },
-      environmentVariables: {
-        ...DEFAULT_ENVIRONMENT_VARIABLES,
-        APP_DOMAIN: '${ssm:/production/APP_DOMAIN}',
-        DB_PASSWORD: '${ssm:/production/DB_PASSWORD}',
-        DB_USERNAME: 'app',
-        ENVIRONMENT: 'production',
-        FROM_EMAIL: 'noreply@example.com',
-        LOG_LEVEL: 'info',
-        SIGNING_KEY: '${ssm:/production/SIGNING_KEY}',
-        STRIPE_KEY: '${ssm:/production/STRIPE_KEY}',
-        STRIPE_PRICE_ID: 'price_xxx',
-        STRIPE_WEBHOOK_SECRET: '${ssm:/production/STRIPE_WEBHOOK_SECRET}',
-      },
+    environmentVariables: {
+      ...DEFAULT_ENVIRONMENT_VARIABLES,
+      APP_DOMAIN: '${ssm:/my-project/staging/APP_DOMAIN}',
+      DB_HOST: '${ssm:/my-project/staging/DB_HOST}',
+      DB_PASSWORD: '${ssm:/my-project/staging/DB_PASSWORD}',
+      DB_USERNAME: 'app',
+      ENVIRONMENT: 'staging',
+      FROM_EMAIL: coreConfig.fromEmail,
+      LOG_LEVEL: 'info',
+      REGION: coreConfig.aws.region,
+      SIGNING_KEY: '${ssm:/my-project/staging/SIGNING_KEY}',
+      STRIPE_KEY: '${ssm:/my-project/staging/STRIPE_KEY}',
+      STRIPE_PRICE_ID: '',
+      STRIPE_WEBHOOK_SECRET: '${ssm:/my-project/staging/STRIPE_WEBHOOK_SECRET}',
+      TEST_CARD_ENABLED: '1',
+    },
+  },
+  production: {
+    deploymentConfig: {
+      publicDatabase: true,
+    },
+    environmentVariables: {
+      ...DEFAULT_ENVIRONMENT_VARIABLES,
+      APP_DOMAIN: '${ssm:/my-project/production/APP_DOMAIN}',
+      DB_HOST: '${ssm:/my-project/production/DB_HOST}',
+      DB_PASSWORD: '${ssm:/my-project/production/DB_PASSWORD}',
+      DB_USERNAME: 'app',
+      ENVIRONMENT: 'production',
+      FROM_EMAIL: coreConfig.fromEmail,
+      LOG_LEVEL: 'info',
+      REGION: coreConfig.aws.region,
+      SIGNING_KEY: '${ssm:/my-project/production/SIGNING_KEY}',
+      STRIPE_KEY: '${ssm:/my-project/production/STRIPE_KEY}',
+      STRIPE_PRICE_ID: '',
+      STRIPE_WEBHOOK_SECRET: '${ssm:/my-project/production/STRIPE_WEBHOOK_SECRET}',
+      TEST_CARD_ENABLED: '1',
     },
   },
 };
 
+export const config: Config = {
+  ...coreConfig,
+  environments,
+};
 ```
 
 Here we define
 
 - The name of your project which is used to name AWS resources belonging to your project
-- The GitHub repository that you will be using
-- AWS account configurations for each environment
+- The GitHub repository that you will be using for your project
+- The domain you will be using for your project
+- The e-mail address you will be using for your project
+- AWS account configuration
 - Environment variables for each environment
+
+Note that the `yarn configure` script will guide you through the initial creation of the `app.config.ts` file. Read more in the [Deploy to AWS](/docs/deploy-to-aws) guide.
 
 ## Environment variables
 
