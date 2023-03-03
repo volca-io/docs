@@ -65,3 +65,11 @@ Next, we need to add the webhook secret to our configuration.
 6. Re-deploy your project
 
 Now you are done! Stripe will alert you if your webhook would fail.
+
+## Free trial
+
+The free trial length can be configured by setting the [environment variable](/docs/configuration#environment-variables) `FREE_TRIAL_DAYS` to the number of days you want to offer a free trial.
+
+## Test card
+
+If the [environment variable](/docs/configuration#environment-variables) `TEST_CARD_ENABLED` is set to `1`, a test card will automatically be created when a checkout session is started. This is useful when you want to test the checkout flow.
