@@ -96,8 +96,8 @@ const config = {
                 to: "/docs/category/project-setup",
               },
               {
-                label: "Examples",
-                to: "/docs/category/examples",
+                label: "Tutorials",
+                to: "/docs/category/tutorials",
               },
             ],
           },
