@@ -18,20 +18,20 @@ To complete this guide, you need:
 
 The file `app.config.ts` in the root directory holds the configuration for your AWS environment. Running the script `yarn configure` will generate the file for you based on your inputs.
 
-## Deploy CoreStack
+## Setup infrastructure
 
-To enable GitHub Actions to deploy any new changes pushed to your repository, a `CoreStack` needs to exist in your account. The `CoreStack` contains the following:
+To enable GitHub Actions to deploy any new changes pushed to your repository, a number of resources need to exist in your account. These resources are:
 
 - An OpenID Connect (OIDC) identity provider that allows GitHub to identity itself
 - IAM roles that allow GitHub Actions to deploy resources in your AWS account
 - A Route53 hosted zone to manage your domain
 - A verified Amazon SES e-mail
 
-To deploy the `CoreStack`, run the following command:
+To deploy these resources, run the following command:
 
-`yarn deploy-core` TODO: Decide name
+`yarn setup:infra`
 
-Once the `CoreStack` has been deployed, it will output a list name servers that you need to point your domain to, for example:
+Once the script has finished, it will output a list name servers that you need to point your domain to, for example:
 
 ```
 Name servers
@@ -60,12 +60,18 @@ You will also receive an e-mail from AWS that prompts you to verify your e-mail 
 
 ## Verify name servers
 
-Wait until the name servers have propagated to proceed with the next step. You can verify this by running `nslookup -type=ns <your-domain>`. If the name servers that the `yarn deploy-core` command are shown, you can proceed.
+Wait until the name servers have propagated to proceed with the next step. You can verify that they have propagated by running `nslookup -type=ns <your-domain>`. If the name servers that the `yarn setup:infra` command are shown, you can proceed.
 
 ## Push your code
 
 Next, GitHub Actions will take over the deployment. To trigger GitHub Actions, commit your changes and push them to the `main` branch. Then head over to your repository in GitHub to see the progress. If any action would fail, check the logs in the Actions tab in your repository and refer to the documentation if something goes wrong.
 
-Note that this step can take a long time the first time it is run since it creates certificates that take a while to validate through DNS.
+:::note
+This step can take a long time the first time it is run since it creates certificates that can take a while to validate through DNS.
+:::
 
 Once it has finished, your environment is deployed and new changes that you push to main will be automatically deployed.
+
+## Done!
+
+Your project should now be available at `https://app.your-domain.com`.
