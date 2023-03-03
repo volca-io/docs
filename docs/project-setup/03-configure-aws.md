@@ -1,9 +1,8 @@
 ---
-sidebar_position: 3
 slug: /configure-aws
 ---
 
-# Configure AWS
+# 3. Configure AWS
 
 Follow the below steps to deploy your application to AWS and make it accessible to your users.
 
@@ -55,7 +54,7 @@ Use the values that you copied while creating the IAM user.
 
 Now that you have set up your credentials, you can test the connection to AWS using the following command:
 
-```sh 
+```sh
 AWS_PROFILE=volca aws sts get-caller-identity
 ```
 

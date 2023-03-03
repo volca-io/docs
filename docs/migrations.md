@@ -42,7 +42,9 @@ To run migrations locally, start your project using `yarn start` from the root f
 
 ### In AWS environments
 
-To run migrations for AWS environments, navigate to `services/api` and run `yarn migrate:latest:<environment>` with the correct AWS profile set in your CLI.
+Migrations are run automatically when you push new changes to the `main` branch.
+
+To run migrations for AWS environments manually, navigate to `services/api` and run `yarn migrate:latest:<environment>` with the correct AWS profile set in your CLI.
 
 ### All migration commands
 
