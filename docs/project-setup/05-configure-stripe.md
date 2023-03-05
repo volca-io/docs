@@ -32,7 +32,7 @@ Now you can start your project locally and try subscribing!
 
 ## Set the STRIPE_KEY parameter in AWS
 
-This step requires you to have deployed your app to AWS at least once by following the [deploy infrastructure guide](/docs/category/deploying-to-aws).
+This step requires you to have deployed your app to AWS at least once by following the [deploy infrastructure guide](/docs/deploy-to-aws).
 
 1. Open the AWS console
 2. Open Services -> Systems Manager -> Parameter Store
