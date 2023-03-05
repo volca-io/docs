@@ -48,7 +48,7 @@ const config = {
           filename: "sitemap.xml",
         },
         googleAnalytics: {
-          trackingID: 'G-CF9KXLG3KR',
+          trackingID: "G-CF9KXLG3KR",
           anonymizeIP: true,
         },
       }),
@@ -92,16 +92,12 @@ const config = {
                 to: "/docs/purchase",
               },
               {
-                label: "Getting started",
-                to: "/docs/category/getting-started",
+                label: "Project setup",
+                to: "/docs/category/project-setup",
               },
               {
-                label: "Deploying to AWS",
-                to: "/docs/category/deploying-to-aws",
-              },
-              {
-                label: "Examples",
-                to: "/docs/category/examples",
+                label: "Tutorials",
+                to: "/docs/category/tutorials",
               },
             ],
           },

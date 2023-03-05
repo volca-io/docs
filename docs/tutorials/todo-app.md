@@ -3,11 +3,11 @@ sidebar_position: 2
 slug: /todo
 ---
 
-# Building a todo app
+# Building a to-do app
 
-In this guide we will walk you through the process of creating a todo list in Volca.
+In this tutorial we will walk you through the process of creating a to-do list in Volca.
 
-Before you start, make sure you have gone through the [getting started guide](/docs/category/getting-started).
+Before you start, make sure you have gone through the [project setup guide](/docs/category/project-setup).
 
 ## Create a database migration
 

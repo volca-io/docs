@@ -1,9 +1,8 @@
 ---
-sidebar_position: 4
 slug: /configure-stripe
 ---
 
-# Configure Stripe
+# 5. Configure Stripe
 
 Follow the below steps to configure Stripe for you application and start accepting payments.
 
@@ -17,19 +16,19 @@ We recommend setting everything up in "Test mode" first by switching on the "Tes
 
 ## Create a product and a price
 
-Once you have your Stripe account set up, it's time to create a product. Go to Products -> Add product and add your product details. Since Volca is a SaaS boilerplate, pick the _recurring_ billing method.
+Once you have your Stripe account set up, it's time to create a product. Go to Products -> Add product and add your product details. Since Volca made for SaaS products, pick the _recurring_ billing method.
 
 When you are done, save the product, scroll down to the "Pricing" heading and copy the ID of the price you just configured.
 
 ## Set the STRIPE_KEY and STRIPE_PRICE_ID locally
 
-To get subscriptions running locally, open `.env` and add:
+To get subscriptions running locally, open the `.env` file in the root folder and add:
 
 `STRIPE_KEY=` The Stripe secret key found in the "Developers" tab in the Stripe dashboard
 
 And then add your `STRIPE_PRICE_ID` to the `app.config.ts` file.
 
-Start the app and try subscribing!
+Now you can start your project locally and try subscribing!
 
 ## Set the STRIPE_KEY parameter in AWS
 
@@ -37,9 +36,9 @@ This step requires you to have deployed your app to AWS at least once by followi
 
 1. Open the AWS console
 2. Open Services -> Systems Manager -> Parameter Store
-3. Find the existing parameter called `/<environment>/STRIPE_KEY`
+3. Find the existing parameter called `/<name>/<environment>/STRIPE_KEY`
 4. Update the parameter with your Stripe key and save
-5. For the updated parameter to be updated in your app, you need to re-deploy it either by running `yarn deploy:<environment>` from the `api` folder or by pushing a new commit to the GitHub repository and let GitHub Actions do the heavy lifting
+5. For the updated parameter to be updated in your app, you need to re-deploy it by triggering the GitHub action `deploy-api-service` either from the GitHub UI or by pushing a commit to the `main` branch.
 
 Now you should be able to accept payments in your deployed application!
 
@@ -52,8 +51,8 @@ Whenever a customer makes a purchase through your Stripe checkout flow, the data
 3. Go to Webhooks
 4. Click Add endpoint
 5. Enter the following values
-  Endpoint URL: `<your-api-url>/stripe/webhook`
-  Events: `customer.subscription.created`and `customer.subscription.deleted`
+   Endpoint URL: `<your-api-url>/stripe/webhook`
+   Events: `customer.subscription.created`and `customer.subscription.deleted`
 6. Leave the rest as default and click Add endpoint
 
 Next, we need to add the webhook secret to our configuration.
@@ -66,3 +65,11 @@ Next, we need to add the webhook secret to our configuration.
 6. Re-deploy your project
 
 Now you are done! Stripe will alert you if your webhook would fail.
+
+## Free trial
+
+The free trial length can be configured by setting the [environment variable](/docs/configuration#environment-variables) `FREE_TRIAL_DAYS` to the number of days you want to offer a free trial.
+
+## Test card
+
+If the [environment variable](/docs/configuration#environment-variables) `TEST_CARD_ENABLED` is set to `1`, a test card will automatically be created when a checkout session is started. This is useful when you want to test the checkout flow.

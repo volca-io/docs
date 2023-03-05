@@ -3,7 +3,7 @@ sidebar_position: 2
 slug: /project-structure
 ---
 
-# Project Structure
+# Project structure
 
 Learn about how a Volca project is structured.
 
