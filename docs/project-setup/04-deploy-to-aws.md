@@ -58,11 +58,11 @@ Some DNS providers will display the list of hostnames differently. You might hav
 
 You will also receive an e-mail from AWS that prompts you to verify your e-mail address. Click the link to get your address verified and ready to send e-mails.
 
-## Verify name servers
-
-Wait until the name servers have propagated to proceed with the next step. You can verify that they have propagated by running `nslookup -type=ns <your-domain>`. If the name servers that the `yarn setup:infra` command are shown, you can proceed.
-
 ## Push your code
+
+:::note
+Wait until the name servers have propagated to proceed with this step. We recommend waiting for ~30 minutes. If your name servers have not yet propagated, the GitHub Action mentioned below will time out. If this happens, wait a few more minutes and retry the Action in the GitHub interface.
+:::
 
 Next, GitHub Actions will take over the deployment. To trigger GitHub Actions, commit your changes and push them to the `main` branch. Then head over to your repository in GitHub to see the progress. If any action would fail, check the logs in the Actions tab in your repository and refer to the documentation if something goes wrong.
 
