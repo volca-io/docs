@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkvolca_docs=self.webpackChunkvolca_docs||[]).push([[322],{4876:t=>{t.exports=JSON.parse('{"title":"Tutorials","slug":"/category/tutorials","permalink":"/docs/category/tutorials","navigation":{"previous":{"title":"Migrations","permalink":"/docs/migrations"},"next":{"title":"Building a to-do app","permalink":"/docs/todo"}}}')}}]);
