@@ -174,7 +174,7 @@ static async getTodos(projectId: string): Promise<User[]> {
     const { todos } = await this.handleApiError(
       this.tokenClient.get(`projects/${id}/todos`).json<GetTodosResponse>()
     );
-    return users;
+    return todos;
   }
 ```
 
