@@ -29,7 +29,7 @@ To enable GitHub Actions to deploy any new changes pushed to your repository, a 
 
 To deploy these resources, run the following command:
 
-`yarn setup:infra`
+`yarn setup:aws`
 
 Once the script has finished, it will output a list name servers that you need to point your domain to, for example:
 
