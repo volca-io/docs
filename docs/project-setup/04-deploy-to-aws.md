@@ -66,10 +66,6 @@ Wait until the name servers have propagated to proceed with this step. We recomm
 
 Next, GitHub Actions will take over the deployment. To trigger GitHub Actions, commit your changes and push them to the `main` branch. Then head over to your repository in GitHub to see the progress. If any action would fail, check the logs in the Actions tab in your repository and refer to the documentation if something goes wrong.
 
-:::note
-This step can take a long time the first time it is run since it creates certificates that can take a while to validate through DNS.
-:::
-
 Once it has finished, your environment is deployed and new changes that you push to main will be automatically deployed.
 
 ## Done!
