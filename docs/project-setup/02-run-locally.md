@@ -98,9 +98,13 @@ Signing up for a subscription will not work locally until you have created your 
 
 :::
 
+## Migrate database
+
+To create the database tables, step into the `services/api` folder and run `yarn migrate:latest:local`.
+
 ## Run!
 
-Run
+From the root folder, run:
 
 ```bash
 yarn start
