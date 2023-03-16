@@ -27,9 +27,13 @@ To enable GitHub Actions to deploy any new changes pushed to your repository, a 
 - A Route53 hosted zone to manage your domain
 - A verified Amazon SES e-mail
 
-To deploy these resources, run the following command:
+To create these resources in your account, run the following command:
 
 `yarn setup:aws`
+
+:::note
+If you configured an AWS profile for your account, remember to add it when running the command: `AWS_PROFILE=<your-profile> yarn setup:aws`
+:::
 
 Once the script has finished, it will output a list name servers that you need to point your domain to, for example:
 
