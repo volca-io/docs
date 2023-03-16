@@ -69,5 +69,3 @@ Which should output information about your AWS user and account:
 ```
 
 `AWS_PROFILE` determines which credentials from the `~/.aws/credentials` file that will be used to call AWS. You can either set it explicitly in each command that calls AWS or set a default `AWS_PROFILE` environment variable in your environment.
-
-In the next section we will go over how to configure Stripe in order to collect payments from your customers.
