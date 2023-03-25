@@ -14,13 +14,48 @@ Head on over to [Stripe](https://stripe.com/) and create an account if you don't
 
 We recommend setting everything up in "Test mode" first by switching on the "Test mode" toggle in the Stripe dashboard. Once you are ready for production, follow the below steps while in production mode.
 
-## Create a product and a price
+## Create products and prices
 
-Once you have your Stripe account set up, it's time to create a product. Go to Products -> Add product and add your product details. Since Volca made for SaaS products, pick the _recurring_ billing method.
+Once you have your Stripe account set up, it's time to create your products. You can configure any number of products you want - for example you might want one product for a cheaper plan and one product for a more expensive premium plan. For each product you want to create, repeat the below steps:
+
+Go to Products -> Add product and add your product details. Since Volca was created for SaaS products, pick the _recurring_ billing method.
 
 When you are done, save the product, scroll down to the "Pricing" heading and copy the ID of the price you just configured.
 
-## Set the STRIPE_KEY and STRIPE_PRICE_ID locally
+## Configure plans
+
+To configure your products in Volca, follow the below steps for each product you created and for each environment:
+
+1. Add a `PlanId` for your product in the file `config/types.ts`. By default there are three plans configured - `BASIC`, `PLUS` and `PREMIUM`. Feel free to remove them or rename them as you prefer.
+2. Add your plans to the `plans` configuration for each environment in `app.config.ts`. A new plan can be added like this: 
+
+```
+plans: [
+   ...
+   {
+      id: PlanId.MY_NEW_PLAN,
+      stripePriceId: 'stripe-price-id', // Your price ID from Stripe
+   }
+   ...
+]
+```
+
+Finally, in `clients/web/src/pages/onboarding.tsx` add your plan to the `plans` array like this:
+
+```
+const plans = {
+   ...
+   MY_NEW_PLAN: {
+      title: 'My New Plan',
+      description: 'A plan that is mine and new.',
+      price: 19,
+      features: ['Feature A', 'Feature B'],
+   }
+   ...
+}
+```
+
+## Set the STRIPE_KEY locally
 
 To get subscriptions running locally, open the `.env` file in the root folder and add:
 
