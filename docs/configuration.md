@@ -27,6 +27,7 @@ const coreConfig: Omit<Config, 'environments'> = {
 
 const environments: Environments = {
   local: {
+    plans: [],
     environmentVariables: {
       ...DEFAULT_ENVIRONMENT_VARIABLES,
       APP_DOMAIN: getEnvVar('APP_DOMAIN', '127.0.0.1:3000'),
@@ -37,7 +38,6 @@ const environments: Environments = {
       LOG_LEVEL: getEnvVar('LOG_LEVEL', 'debug'),
       SIGNING_KEY: getEnvVar('SIGNING_KEY', 'signing-key'),
       STRIPE_KEY: getEnvVar('STRIPE_KEY', 'stripe-key'),
-      STRIPE_PRICE_ID: getEnvVar('STRIPE_PRICE_ID', 'stripe-price-id'),
       STRIPE_WEBHOOK_SECRET: getEnvVar('STRIPE_WEBHOOK_SECRET', 'stripe-webhook-secret'),
       TEST_CARD_ENABLED: getEnvVar('TEST_CARD_ENABLED', '1'),
     },
@@ -47,6 +47,7 @@ const environments: Environments = {
       subdomain: 'staging',
       publicDatabase: true,
     },
+    plans: [],
     environmentVariables: {
       ...DEFAULT_ENVIRONMENT_VARIABLES,
       APP_DOMAIN: '${ssm:/my-project/staging/APP_DOMAIN}',
@@ -59,7 +60,6 @@ const environments: Environments = {
       REGION: coreConfig.aws.region,
       SIGNING_KEY: '${ssm:/my-project/staging/SIGNING_KEY}',
       STRIPE_KEY: '${ssm:/my-project/staging/STRIPE_KEY}',
-      STRIPE_PRICE_ID: '',
       STRIPE_WEBHOOK_SECRET: '${ssm:/my-project/staging/STRIPE_WEBHOOK_SECRET}',
       TEST_CARD_ENABLED: '1',
     },
@@ -68,6 +68,7 @@ const environments: Environments = {
     deploymentConfig: {
       publicDatabase: true,
     },
+    plans: [],
     environmentVariables: {
       ...DEFAULT_ENVIRONMENT_VARIABLES,
       APP_DOMAIN: '${ssm:/my-project/production/APP_DOMAIN}',
@@ -79,8 +80,6 @@ const environments: Environments = {
       LOG_LEVEL: 'info',
       REGION: coreConfig.aws.region,
       SIGNING_KEY: '${ssm:/my-project/production/SIGNING_KEY}',
-      STRIPE_KEY: '${ssm:/my-project/production/STRIPE_KEY}',
-      STRIPE_PRICE_ID: '',
       STRIPE_WEBHOOK_SECRET: '${ssm:/my-project/production/STRIPE_WEBHOOK_SECRET}',
       TEST_CARD_ENABLED: '1',
     },
