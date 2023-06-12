@@ -1,8 +1,8 @@
 ---
-slug: /configure-stripe
+slug: /configure-authentication
 ---
 
-# 6. Setup Authentication with AWS Cognito
+# 5. Configure authentication
 
 When you first setup Volca it will run with a mock user and without authentication. This is beneficial to quickly get up and running locally, but when you keep developing your project you need to setup the proper authentication solution.
 
