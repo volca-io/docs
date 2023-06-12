@@ -16,14 +16,13 @@ my-volca-project/
 │  │  │  ├─ hooks/ (contains hooks used to manipulate state, call APIs etc)
 │  │  │  ├─ layouts/ (contains layout components)
 │  │  │  ├─ pages/ (contains pages that correspond to a route in the app)
+│  │  │  ├─ providers/ (react contexts for global state)
 │  │  │  ├─ routing/ (components for routing)
-│  │  │  ├─ state/ (state management)
 │  │  │  ├─ theme/ (theme and styling configuration)
 ├─ services/
 │  ├─ api/
 │  │  ├─ src/
 │  │  │  ├─ actions/ (contains functions that are called from routes)
-│  │  │  ├─ email-templates/ (templates for emails sent from the app)
 │  │  │  ├─ entities/ (entities used for interacting with the database)
 │  │  │  ├─ errors/ (definitions of all errors that can be thrown by the service)
 │  │  │  ├─ lambda-handlers/ (defines the Lambda functions that runs the service)

@@ -2,7 +2,7 @@
 slug: /configure-stripe
 ---
 
-# 5. Configure Stripe
+# 6. Configure Stripe
 
 Follow the below steps to configure Stripe for you application and start accepting payments.
 

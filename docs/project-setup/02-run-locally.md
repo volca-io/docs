@@ -6,6 +6,10 @@ slug: /run-locally
 
 Learn how to run a Volca project locally.
 
+:::note
+When you start volca locally for the first time, the service will be set up to run with a mocked user and no authentication pages will be displayed. Since the authentication in Volca relies on AWS resources to function you will need to deploy infrastructure to AWS before you can use the full functionality.
+:::
+
 ## Install tooling
 
 This section guides your through how to install the tooling required to run Volca.
