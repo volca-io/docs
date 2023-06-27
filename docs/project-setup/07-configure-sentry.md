@@ -24,7 +24,7 @@ For the webapp you can select `node.js` as your platform and name it something l
 
 ## Update app.config.ts
 
-When you have your DSN values you can update the sentry block in your environment config by uncommenting the block in your `app.config.ts` file and filling in the DSN values.
+When you have your DSN values you can update the `sentry` block in your environment config by uncommenting the block in your `app.config.ts` file and filling in the DSN values.
 
 ```ts
     sentry: {
