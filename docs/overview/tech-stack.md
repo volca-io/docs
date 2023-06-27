@@ -11,6 +11,7 @@ The tech stack that Volca is built on was chosen with the following in mind:
 - Reliability - To make sure your users keep using your product, you want to be using reliable and proven technology
 - Scalability - Start from 0 and scale to thousands of users without worrying about manually scaling your infrastructure
 - Extensibility - Start with a simple project structure that a single developer can navigate and extend it to a development environment that can support hundreds of developers
+- Security - Security creates trust with your users. Build on a foundation with established and tested security services
 - Cost - Don't spend hundreds of dollars up front on infrastructure, let your costs scale with the number of customers
 
 Read more about the tools and libraries we use to power Volca below.
@@ -25,12 +26,11 @@ Read more about the tools and libraries we use to power Volca below.
 
 ## Frontend
 
-| What?      | Usage            | Why?                                                                                                                                        |
-| ---------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| React      | Framework        | React is the most popular library for frontend framework and has a strong developer community.                                              |
-| Chakra     | UI Library       | Simple, modular and customizable UI components.                                                                                             |
-| Recoil     | State Management | Minimal state management library that works well with React.                                                                                |
-| TypeScript | Language         | TypeScript enables you to write type safe frontend and backend applications while still using the vast resources that come with JavaScript. |
+| What?      | Usage      | Why?                                                                                                                                        |
+| ---------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| React      | Framework  | React is the most popular library for frontend framework and has a strong developer community.                                              |
+| Chakra     | UI Library | Simple, modular and customizable UI components.                                                                                             |
+| TypeScript | Language   | TypeScript enables you to write type safe frontend and backend applications while still using the vast resources that come with JavaScript. |
 
 ## Backend
 

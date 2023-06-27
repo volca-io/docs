@@ -55,12 +55,32 @@ Take the list of name servers and add them to your domain registration as NS rec
 |                    |      | ns-1943.awsdns-50.co.uk |
 
 :::caution
-
 Some DNS providers will display the list of hostnames differently. You might have to enter `staging.my-app.com` or just `staging` as the hostname. Have a look at the existing entries to understand how it should be entered. For example, if there is only a `www` entry instead of `www.my-app.com`, then you should only enter `staging`.
-
 :::
 
 You will also receive an e-mail from AWS that prompts you to verify your e-mail address. Click the link to get your address verified and ready to send e-mails.
+
+## Validating e-mail identity
+
+Volca will setup a verified domain in AWS SES to allow you to send emails from your service. The domain is validated through DKIM (Domain Keys Identified Mail). For this to function, you will need to point a subdomain of your application to the name servers described in the previous section. This will automatically verify your domain.
+
+| Hostname        | Type | Data                    |
+| --------------- | ---- | ----------------------- |
+| mail.my-app.com | NS   | ns-1126.awsdns-12.org   |
+|                 |      | ns-642.awsdns-16.net    |
+|                 |      | ns-220.awsdns-27.com    |
+|                 |      | ns-1943.awsdns-50.co.uk |
+
+## DNS records for authentication
+
+Volca will also set up a subdomain for user authentication that will be hosed on the `login` subdomain of your app. So make sure to route the subdomain `login.<my-app>.com` to the name servers previously specified.
+
+| Hostname         | Type | Data                    |
+| ---------------- | ---- | ----------------------- |
+| login.my-app.com | NS   | ns-1126.awsdns-12.org   |
+|                  |      | ns-642.awsdns-16.net    |
+|                  |      | ns-220.awsdns-27.com    |
+|                  |      | ns-1943.awsdns-50.co.uk |
 
 ## Push your code
 
