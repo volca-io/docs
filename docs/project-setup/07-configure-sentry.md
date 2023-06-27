@@ -18,7 +18,7 @@ First you need to create a new organisation, or you can use an existing one. Onc
 
 For the webapp you can select `React` as your platform and name it something like `<your-app>-webapp`. On the getting started page, take note of the `dsn` value. It should look something like `https://<id>.ingest.sentry.io/<id>"`.
 
-### Create a api project
+### Create an API project
 
 For the webapp you can select `node.js` as your platform and name it something like `<your-app>-api`. It should look something like `https://<id>.ingest.sentry.io/<id>"`.
 
