@@ -16,7 +16,7 @@ To complete this guide, you need:
 
 ## Configure
 
-The file `app.config.ts` in the root directory holds the configuration for your AWS environment. Running the script `yarn configure` will generate the file for you based on your inputs.
+The file `app.config.ts` in the root directory holds the configuration for your AWS environment. Configure your account details under the `aws` section in `coreConfig` in this file before you proceed.
 
 ## Setup infrastructure
 

@@ -198,8 +198,6 @@ Here we define
 - Environment variables for each environment
 - Authentication information for what identity providers you want to use.
 
-Note that the `yarn configure` script will guide you through the initial creation of the `app.config.ts` file. Read more in the [Deploy to AWS](/docs/deploy-to-aws) guide.
-
 ## Environment variables
 
 To add a new environment variable, first add it to the `EnvironmentVariable` type in `config/types.ts`
