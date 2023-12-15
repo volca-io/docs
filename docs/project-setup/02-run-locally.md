@@ -32,14 +32,14 @@ Run the following commands to install
 
 ```bash
   asdf plugin add nodejs
-  asdf install nodejs 16.17.0
+  asdf install nodejs 18.17.1
 ```
 
 Once installed, make sure it works from your CLI by running:
 
 `node --version`
 
-Which should output `v16.17.0`
+Which should output `v18.17.1`
 
 ### 3. Install `yarn`
 
@@ -88,12 +88,33 @@ After the tools has been installed, we can proceed to install the repositories d
 yarn install
 ```
 
+## Build packages
+
+To be able to import your packages they need to be built, run the following command to build your packages folder
+
+```bash
+yarn build:packages
+```
+
 ## Create a .env file
 
 Create a file with the name `.env` and place it in the root folder. The file should contain the following:
 
 ```
-STRIPE_KEY=<stripe-key>
+ENVIRONMENT=local
+LOG_LEVEL=info
+APP_DOMAIN=http://localhost:3000
+LOGGING_ENABLED=1
+DB_HOST=localhost
+DB_PORT=5432
+DB_USERNAME=postgres
+DB_PASSWORD=postgres
+STRIPE_KEY=<stripe-key> # Add your Stripe secret API key
+STRIPE_WEBHOOK_SECRET=<not-applicable> # Not used in your local environment
+AWS_COGNITO_USER_POOL_ID=<cognio-user-pool-id> # Add when staging has been deployed to use real authentication
+AWS_COGNITO_APP_CLIENT_ID=<cognito-app-client-id> # Add when staging has been deployed to use real authentication
+AWS_COGNITO_IDENTITY_POOL_ID=<cognito-identity-pool-id> # Add when staging has been deployed to use real authentication
+AWS_S3_ASSETS_BUCKET=<assets-bucket> # Add when staging has been deployed to be able to upload files
 ```
 
 :::note
