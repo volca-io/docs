@@ -10,7 +10,7 @@ Learn how to deploy your project to AWS.
 
 To complete this guide, you need:
 
-- An [AWS account](/docs/configure-aws) with configured credentials in your CLI
+- An [AWS account](/configure-aws) with configured credentials in your CLI
 - A domain name where you have access to control DNS settings
 - An e-mail address belonging to your domain name which will be used as the sender for any e-mails sent by your project
 

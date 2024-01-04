@@ -8,8 +8,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "Volca",
   tagline: "Explore the docs and get your SaaS up and running in no time! 🚀",
-  url: "https://volca.io",
-  baseUrl: "/docs",
+  url: "https://docs.volca.io",
+  baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
@@ -89,15 +89,15 @@ const config = {
             items: [
               {
                 label: "Purchasing Volca",
-                to: "/docs/purchase",
+                to: "/purchase",
               },
               {
                 label: "Project setup",
-                to: "/docs/category/project-setup",
+                to: "/category/project-setup",
               },
               {
                 label: "Tutorials",
-                to: "/docs/category/tutorials",
+                to: "/category/tutorials",
               },
             ],
           },

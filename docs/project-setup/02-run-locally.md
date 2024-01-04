@@ -119,7 +119,7 @@ AWS_S3_ASSETS_BUCKET=<assets-bucket> # Add when staging has been deployed to be 
 
 :::note
 
-Signing up for a subscription will not work locally until you have created your Stripe test key and added it to this `.env` file. Starting the project will work however. Once you have added your Stripe test key, you can activate a subscription locally by opening the checkout page and pressing the back button as Stripe cannot communicate with your local environment. Read more about how to set up Stripe in the [Configure Stripe](/docs/configure-stripe) section.
+Signing up for a subscription will not work locally until you have created your Stripe test key and added it to this `.env` file. Starting the project will work however. Once you have added your Stripe test key, you can activate a subscription locally by opening the checkout page and pressing the back button as Stripe cannot communicate with your local environment. Read more about how to set up Stripe in the [Configure Stripe](/configure-stripe) section.
 
 :::
 
