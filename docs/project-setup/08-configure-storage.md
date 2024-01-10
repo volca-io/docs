@@ -6,19 +6,6 @@ slug: /configure-storage
 
 A common use case when setting up your project is storing files. Volca includes functionality for storing files in a secure manner with AWS S3 and AWS Cognito.
 
-## Enabling storage
-
-Enabling storage is as simple as enabling it in your `app.config.ts` file.
-
-```ts
-production: {
-    ...
-    storage: {
-      enabled: true,
-    },
-    ...
-  },
-```
 
 ### Enable for local development
 
