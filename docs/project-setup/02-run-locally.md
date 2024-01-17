@@ -82,18 +82,10 @@ Which should output the version of your AWS CLI installation.
 
 ## Install dependencies
 
-After the tools has been installed, we can proceed to install the repositories dependencies.
+After the tools have been installed, we can proceed to install the repositories dependencies.
 
 ```bash
 yarn install
-```
-
-## Build packages
-
-To be able to import your packages they need to be built, run the following command to build your packages folder
-
-```bash
-yarn build:packages
 ```
 
 ## Create a .env file
@@ -135,6 +127,6 @@ From the root folder, run:
 yarn start
 ```
 
-This command will make the Volca web app available on `http://127.0.0.1:3000` and the backend API available on `http://localhost:4000`.
+This command will make the Volca dashboard available on `http://127.0.0.1:3000`, the API on `http://localhost:4000` and the landing page on `http://localhost:3001`.
 
 Congrats, now you can start building features using your favorite IDE!
